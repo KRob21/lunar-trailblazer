@@ -1,0 +1,15 @@
+.coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 675px;
+    min-height: 100vh;
+    text-align: center;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+}
