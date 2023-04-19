@@ -9,6 +9,10 @@ const routes: Routes = [
         (m) => m.SplashPageModule
       ),
   },
+  {path:'auth',
+    loadChildren: () => import('./auth/auth.module').then(
+      (m) =>m.AuthModule),
+    },
   // Add other routes here
   { path: '**', redirectTo: '404' },
 ];
