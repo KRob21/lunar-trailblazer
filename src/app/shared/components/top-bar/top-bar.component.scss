@@ -1,0 +1,36 @@
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  
+    .logo {
+      img {
+        height: 50px;
+      }
+    }
+  
+    .tagline {
+      h1 {
+        font-size: 1.5rem;
+        color: white;
+        margin: 0;
+      }
+    }
+  
+    .navigation {
+      a {
+        color: white;
+        text-decoration: none;
+        margin: 0 1rem;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }  
