@@ -20,8 +20,11 @@ export class LoginPageComponent {
 		console.log('Login with Github!')
 	}
 
-	handleEmailLoginForm(data: EmailLoginForm) {
-		console.log('Email login form data:', data)
-		// Process the form data as needed
+	handleFormSubmit(event: { type: string; data: EmailLoginForm }) {
+		if (event.type === 'login') {
+			console.log('Email login form data:', event.data)
+		} else if (event.type === 'signup') {
+			console.log('Email signup form data:', event.data)
+		}
 	}
 }

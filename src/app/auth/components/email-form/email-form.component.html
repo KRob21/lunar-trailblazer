@@ -7,6 +7,7 @@
     </h3>
 
     <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+        <input type="hidden" name="formType" [ngModel]="type" />
         <label *ngIf="isSignup">
             <span>Name</span>
             <input type="text" name="name" required ngModel />

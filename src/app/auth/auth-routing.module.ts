@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { LoginPageComponent } from './containers/login-page/login-page.component'
 import { ForgotPasswordPageComponent } from './containers/forgot-password-page/forgot-password-page.component'
-import { RegisterPageComponent } from './containers/register-page/register-page.component'
 
 const routes: Routes = [
 	{
@@ -12,10 +11,6 @@ const routes: Routes = [
 			{
 				path: 'login', // Redirect to the login page
 				component: LoginPageComponent,
-			},
-			{
-				path: 'register', // Redirect to the login page
-				component: RegisterPageComponent,
 			},
 			{
 				path: 'forgot-password', // Redirect to the login page
