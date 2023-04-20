@@ -1,1 +1,29 @@
-<p>login-page works!</p>
+<main class="container">
+    <div class="form-wrapper">
+        <h2 class="login-heading">Admin Area</h2>
+        <email-form (formSubmit)="handleEmailLoginForm($event)"></email-form>
+
+        <div class="social-login-wrapper">
+            <h3 class="social-login-heading">Or login with:</h3>
+            <div class="btn-row">
+                <button class="social-login-button" (click)="loginWithGoogle()">
+                    <!-- <img src="path/to/google-icon.svg" alt="Google" class="social-login-icon"> -->
+                    Google
+                </button>
+                <button class="social-login-button" (click)="loginWithFacebook()">
+                    <!-- <img src="path/to/facebook-icon.svg" alt="Facebook" class="social-login-icon"> -->
+                    Facebook
+                </button>
+                <button class="social-login-button" (click)="loginWithTwitter()">
+                    <!-- <img src="path/to/Twitter-icon.svg" alt="Twitter" class="social-login-icon"> -->
+                    Twitter
+                </button>
+                <button class="social-login-button" (click)="loginWithGithub()">
+                    <!-- <img src="path/to/Github-icon.svg" alt="Github" class="social-login-icon"> -->
+                    Github
+                </button>
+                <!-- Add more social login buttons here as needed -->
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,1 +1,45 @@
-<p>email-form works!</p>
+<div class="email-login">
+    <h3>
+        <ng-container [ngSwitch]="type">
+            <span *ngSwitchCase="'signup'">Create your account.</span>
+            <span *ngSwitchCase="'login'">Welcome back! Sign in.</span>
+        </ng-container>
+    </h3>
+
+    <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+        <label *ngIf="isSignup">
+            <span>Name</span>
+            <input type="text" name="name" required ngModel />
+        </label>
+
+        <label>
+            <span>Email</span>
+            <input class="input" type="email" name="email" ngModel #email />
+        </label>
+
+        <label>
+            <span>Password</span>
+            <input class="input" type="password" name="password" ngModel #password />
+        </label>
+        <label>
+            <span>
+                <input type="checkbox" name="agreeToTerms" required ngModel #agreeToTerms="ngModel" />I agree to the
+                terms</span>
+
+            <div class="email-login-form-error" *ngIf="agreeToTerms.invalid && agreeToTerms.touched">
+                Agreeing to terms is required.
+            </div>
+        </label>
+        <label>
+            <span> <input type="checkbox" name="rememberMe" ngModel />
+                Remember me</span>
+        </label>
+
+        <div class="button-group">
+            <button class="btn btn--blue" *ngIf="isLogin" type="submit">Log in</button>
+            <button class="btn btn--blue" *ngIf="isSignup" type="submit">Create account</button>
+            <button class="btn btn--grey" *ngIf="isSignup" (click)="changeType('login')">Returning user?</button>
+            <button class="btn btn--grey" *ngIf="!isSignup" (click)="changeType('signup')">New user?</button>
+        </div>
+        <a routerLink="/auth/forgot-password">Forgot password?</a>
+    </form>
