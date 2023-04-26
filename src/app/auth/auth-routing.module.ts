@@ -13,7 +13,7 @@ const routes: Routes = [
 				component: LoginPageComponent,
 			},
 			{
-				path: 'forgot-password', // Redirect to the login page
+				path: 'forgot-password', // Redirect to the forgot password page
 				component: ForgotPasswordPageComponent,
 			},
 			// Add other child routes here as needed
