@@ -1,6 +1,6 @@
 export const environment = {
 	production: false,
-	firebase: {
+	firebaseConfig: {
 		apiKey: 'AIzaSyBCTYn7hT1Fb9_JtN6KI_SIuGMbjaC5z30',
 		authDomain: 'lunar-trailblazer.firebaseapp.com',
 		projectId: 'lunar-trailblazer',
@@ -10,5 +10,3 @@ export const environment = {
 		measurementId: 'G-7ZNYD87RYC',
 	},
 }
-
-/**  */
