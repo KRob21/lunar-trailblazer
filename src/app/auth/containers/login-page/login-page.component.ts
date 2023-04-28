@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { EmailLoginForm } from '../../components/email-form/email-form.component'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
 	selector: 'app-login-page',
@@ -7,6 +8,7 @@ import { EmailLoginForm } from '../../components/email-form/email-form.component
 	styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
+	constructor(private authService: AuthService) {}
 	loginWithGoogle() {
 		console.log('Login with Google!')
 	}
@@ -20,11 +22,27 @@ export class LoginPageComponent {
 		console.log('Login with Github!')
 	}
 
-	handleFormSubmit(event: { type: string; data: EmailLoginForm }) {
+	async handleFormSubmit(event: { type: string; data: EmailLoginForm }) {
 		if (event.type === 'login') {
-			console.log('Email login form data:', event.data)
+			try {
+				await this.authService.loginWithEmailAndPassword(
+					event.data.email,
+					event.data.password,
+				)
+				console.log('Email login success')
+			} catch (error) {
+				console.error('Email login error:', error)
+			}
 		} else if (event.type === 'signup') {
-			console.log('Email signup form data:', event.data)
+			try {
+				await this.authService.signupWithEmailAndPassword(
+					event.data.email,
+					event.data.password,
+				)
+				console.log('Email signup success')
+			} catch (error) {
+				console.error('Email signup error:', error)
+			}
 		}
 	}
 }

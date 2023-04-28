@@ -14,7 +14,6 @@ import { AuthRoutingModule } from './auth-routing.module'
 @NgModule({
 	declarations: [
 		LoginPageComponent,
-
 		ForgotPasswordPageComponent,
 		EmailFormComponent,
 		PasswordFormComponent,

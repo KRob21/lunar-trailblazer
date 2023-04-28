@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-// Import Firebase functions and environment configuration
-import { initializeApp } from '@firebase/app'
-import { getAnalytics } from '@firebase/analytics'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+import { provideAuth, getAuth } from '@angular/fire/auth'
+import {
+	provideAnalytics,
+	getAnalytics,
+	ScreenTrackingService,
+	UserTrackingService,
+} from '@angular/fire/analytics'
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'
 import { environment } from '../environments/environment'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -13,14 +19,16 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
 
 @NgModule({
 	declarations: [AppComponent, TopBarComponent],
-	imports: [BrowserModule, AppRoutingModule, AuthModule],
-	providers: [AuthGuard],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		AuthModule,
+		provideFirebaseApp(() => initializeApp(environment.firebase)),
+		provideAnalytics(() => getAnalytics()),
+		provideAuth(() => getAuth()),
+		provideFirestore(() => getFirestore()),
+	],
+	providers: [AuthGuard, ScreenTrackingService, UserTrackingService],
 	bootstrap: [AppComponent],
 })
-export class AppModule {
-	constructor() {
-		// Initialize Firebase
-		initializeApp(environment.firebaseConfig)
-		getAnalytics()
-	}
-}
+export class AppModule {}
