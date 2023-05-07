@@ -13,7 +13,6 @@ import { environment } from '../environments/environment'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { AuthModule } from './auth/auth.module'
 import { AuthGuard } from './guards/auth.guard'
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
 
@@ -22,7 +21,6 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		AuthModule,
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideAnalytics(() => getAnalytics()),
 		provideAuth(() => getAuth()),

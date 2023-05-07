@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
 import {
+	Auth,
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -10,7 +12,10 @@ import {
 	providedIn: 'root',
 })
 export class AuthService {
-	private auth = getAuth()
+	private auth
+	constructor(private router: Router) {
+		this.auth = getAuth()
+	}
 
 	async loginWithEmailAndPassword(
 		email: string,
@@ -18,7 +23,8 @@ export class AuthService {
 	): Promise<void> {
 		try {
 			await signInWithEmailAndPassword(this.auth, email, password)
-			console.log('successfull login')
+			alert('successful login')
+			this.router.navigate(['/admin/dashboard'])
 		} catch (error) {
 			console.log('error', error)
 			console.error('Error during login:', error)
@@ -32,6 +38,8 @@ export class AuthService {
 	): Promise<void> {
 		try {
 			await createUserWithEmailAndPassword(this.auth, email, password)
+			alert('successful signup')
+			this.router.navigate(['/admin/dashboard'])
 		} catch (error) {
 			console.error('Error during signup:', error)
 			throw error
