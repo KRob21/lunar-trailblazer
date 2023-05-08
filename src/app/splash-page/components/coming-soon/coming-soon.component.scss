@@ -1,15 +1,25 @@
 .coming-soon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    max-width: 675px;
-    min-height: 100vh;
-    text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	max-width: 1920px;
+	height: 100vh;
+	background: url('/assets/images/main_banner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
+	.card {
+		color: white;
+		max-width: 50%;
+		border-radius: 21px;
+		margin: 10% auto;
+		padding: 20px;
+		background: rgba(0, 0, 0, 0.85);
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+	}
 }
