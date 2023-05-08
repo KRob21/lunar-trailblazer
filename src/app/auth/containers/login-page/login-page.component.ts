@@ -1,14 +1,29 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { EmailLoginForm } from '../../components/email-form/email-form.component'
 import { AuthService } from '../../services/auth.service'
+import { Router } from '@angular/router'
 
 @Component({
 	selector: 'app-login-page',
 	templateUrl: './login-page.component.html',
 	styleUrls: ['./login-page.component.scss'],
 })
-export class LoginPageComponent {
-	constructor(private authService: AuthService) {}
+export class LoginPageComponent implements OnInit {
+	isLoggedIn: boolean | undefined
+	constructor(private authService: AuthService, private router: Router) {
+		this.authService.authState$.subscribe(authState => {
+			this.isLoggedIn = authState.isLoggedIn
+		})
+	}
+	ngOnInit(): void {
+		if (this.isLoggedIn) {
+			alert('logged in redirecting to admin')
+			this.router.navigate(['admin'])
+		}
+		if (!this.isLoggedIn) {
+			alert('not logged in')
+		}
+	}
 	loginWithGoogle() {
 		console.log('Login with Google!')
 	}

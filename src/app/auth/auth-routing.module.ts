@@ -19,7 +19,7 @@ const routes: Routes = [
 			// Add other child routes here as needed
 		],
 	},
-	{ path: '', redirectTo: 'login', pathMatch: 'full' },
+	{ path: '', redirectTo: '/login', pathMatch: 'full' },
 ]
 
 @NgModule({

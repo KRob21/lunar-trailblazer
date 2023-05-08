@@ -6,15 +6,27 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
+	User,
 } from 'firebase/auth'
-
+import { AuthStore } from '../../store/auth/auth.store'
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
 	private auth
+	private authStore: AuthStore
+
 	constructor(private router: Router) {
 		this.auth = getAuth()
+		this.authStore = new AuthStore()
+
+		this.auth.onAuthStateChanged((user: User | null) => {
+			this.authStore.updateUser(user)
+		})
+	}
+
+	get authState$() {
+		return this.authStore.authState$
 	}
 
 	async loginWithEmailAndPassword(
