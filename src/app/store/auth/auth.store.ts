@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { User } from 'firebase/auth'
 
@@ -11,6 +12,9 @@ const initialState: AuthState = {
 	isLoggedIn: false,
 }
 
+@Injectable({
+	providedIn: 'root',
+})
 export class AuthStore {
 	private authSubject: BehaviorSubject<AuthState>
 

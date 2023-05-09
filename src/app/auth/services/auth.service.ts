@@ -14,11 +14,9 @@ import { AuthStore } from '../../store/auth/auth.store'
 })
 export class AuthService {
 	private auth
-	private authStore: AuthStore
 
-	constructor(private router: Router) {
+	constructor(private router: Router, private authStore: AuthStore) {
 		this.auth = getAuth()
-		this.authStore = new AuthStore()
 
 		this.auth.onAuthStateChanged((user: User | null) => {
 			this.authStore.updateUser(user)
@@ -34,8 +32,12 @@ export class AuthService {
 		password: string,
 	): Promise<void> {
 		try {
-			await signInWithEmailAndPassword(this.auth, email, password)
-			alert('successful login')
+			const userCredential = await signInWithEmailAndPassword(
+				this.auth,
+				email,
+				password,
+			)
+			this.authStore.updateUser(userCredential.user)
 			this.router.navigate(['/admin/dashboard'])
 		} catch (error) {
 			console.log('error', error)
@@ -49,7 +51,12 @@ export class AuthService {
 		password: string,
 	): Promise<void> {
 		try {
-			await createUserWithEmailAndPassword(this.auth, email, password)
+			const userCredential = await createUserWithEmailAndPassword(
+				this.auth,
+				email,
+				password,
+			)
+			this.authStore.updateUser(userCredential.user)
 			alert('successful signup')
 			this.router.navigate(['/admin/dashboard'])
 		} catch (error) {
@@ -61,6 +68,8 @@ export class AuthService {
 	async signOut(): Promise<void> {
 		try {
 			await signOut(this.auth)
+			this.authStore.updateUser(null) // Update the AuthStore on logout
+			this.router.navigate(['auth/login'])
 		} catch (error) {
 			console.error('Error during sign out:', error)
 			throw error

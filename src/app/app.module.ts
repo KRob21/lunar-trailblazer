@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
+import { AuthStore } from './store/auth/auth.store'
 
 @NgModule({
 	declarations: [AppComponent, TopBarComponent],
@@ -26,7 +27,12 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
 		provideAuth(() => getAuth()),
 		provideFirestore(() => getFirestore()),
 	],
-	providers: [AuthGuard, ScreenTrackingService, UserTrackingService],
+	providers: [
+		AuthGuard,
+		AuthStore,
+		ScreenTrackingService,
+		UserTrackingService,
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}

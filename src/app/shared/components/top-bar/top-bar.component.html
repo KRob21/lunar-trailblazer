@@ -10,7 +10,13 @@
     <a routerLink="about">About</a>
     <a routerLink="contact">Contact</a>
     <a routerLink="services">Services</a>
-    <a routerLink="auth/login">Admin</a>
+    <a routerLink="admin/">Admin</a>
+    <a *ngIf="!isLoggedIn" routerLink="auth/login"> Log in</a>
+    <a class="btn btn-red" *ngIf="isLoggedIn" (click)="logout()">Log out</a>
+
     <!-- Add more links as needed -->
   </nav>
+
+
+
 </header>
