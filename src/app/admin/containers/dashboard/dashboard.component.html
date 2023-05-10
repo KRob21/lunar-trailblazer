@@ -1,5 +1,20 @@
 <div class="dashboard">
     <h2>dashboard</h2>
 
-    <button (click)="signOut()">sign out</button>
+    <div class="user-card">
+        <img src="/assets/img/{{user!.avatar}}.jpg" [alt]="user!.name">
+        <div>
+            <p class="user-card-name">
+                Name: {{user!.name}}
+                <ng-container [ngSwitch]="user!.role">
+                    <span *ngSwitchCase="'member'" class="user-card-label">member</span>
+                    <span *ngSwitchCase="'admin'" class="user-card-label">admin</span>
+                </ng-container>
+            </p>
+            <p class="user-card-email">
+                Email: {{user!.email}}
+            </p>
+        </div>
+        <a [routerLink]="user!.id" class="btn">edit</a>
+    </div>
 </div>

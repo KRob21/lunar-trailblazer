@@ -4,12 +4,22 @@ import { User } from 'firebase/auth'
 
 interface AuthState {
 	user: User | null
+	id: string | null
 	isLoggedIn: boolean
+	name: string | null
+	email: string | null
+	role: 'member' | 'admin' | null
+	avatar: string | null
 }
 
 const initialState: AuthState = {
 	user: null,
+	id: null,
 	isLoggedIn: false,
+	name: '',
+	email: '',
+	role: 'member',
+	avatar: 'avatar',
 }
 
 @Injectable({
