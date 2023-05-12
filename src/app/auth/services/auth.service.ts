@@ -9,13 +9,18 @@ import {
 	User,
 } from 'firebase/auth'
 import { AuthStore } from '../../store/auth/auth.store'
+import { DialogService } from 'src/app/shared/services/dialog.service'
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
 	private auth
 
-	constructor(private router: Router, private authStore: AuthStore) {
+	constructor(
+		private router: Router,
+		private authStore: AuthStore,
+		private dialogService: DialogService,
+	) {
 		this.auth = getAuth()
 
 		this.auth.onAuthStateChanged((user: User | null) => {
@@ -40,7 +45,7 @@ export class AuthService {
 			this.authStore.updateUser(userCredential.user)
 			this.router.navigate(['/admin/dashboard'])
 		} catch (error) {
-			console.log('error', error)
+			alert('login error')
 			console.error('Error during login:', error)
 			throw error
 		}

@@ -15,10 +15,11 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
-import { AuthStore } from './store/auth/auth.store'
+import { AuthStore } from './store/auth/auth.store';
+import { DialogComponent } from './shared/components/dialog/dialog.component'
 
 @NgModule({
-	declarations: [AppComponent, TopBarComponent],
+	declarations: [AppComponent, TopBarComponent, DialogComponent],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,

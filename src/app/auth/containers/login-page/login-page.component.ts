@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { EmailLoginForm } from '../../components/email-form/email-form.component'
 import { AuthService } from '../../services/auth.service'
 import { Router } from '@angular/router'
+import { DialogService } from 'src/app/shared/services/dialog.service'
 
 @Component({
 	selector: 'app-login-page',
@@ -10,18 +11,21 @@ import { Router } from '@angular/router'
 })
 export class LoginPageComponent implements OnInit {
 	isLoggedIn: boolean | undefined
-	constructor(private authService: AuthService, private router: Router) {
+	constructor(
+		private authService: AuthService,
+		private router: Router,
+		private dialogService: DialogService,
+	) {
 		this.authService.authState$.subscribe(authState => {
 			this.isLoggedIn = authState.isLoggedIn
 		})
 	}
 	ngOnInit(): void {
 		if (this.isLoggedIn) {
-			alert('logged in redirecting to admin')
+			console.log('logged in redirecting to admin')
 			this.router.navigate(['admin'])
 		}
 		if (!this.isLoggedIn) {
-			alert('not logged in')
 		}
 	}
 	loginWithGoogle() {
@@ -45,7 +49,17 @@ export class LoginPageComponent implements OnInit {
 					event.data.password,
 				)
 				console.log('Email login success')
+				this.dialogService.showDialog(
+					'success',
+					'Success',
+					'you have succesfully logged in',
+				)
 			} catch (error) {
+				this.dialogService.showDialog(
+					'error',
+					'Not Logged IN',
+					'you must be logged in',
+				)
 				console.error('Email login error:', error)
 			}
 		} else if (event.type === 'signup') {
