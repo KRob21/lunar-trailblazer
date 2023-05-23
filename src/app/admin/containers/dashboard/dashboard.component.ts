@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 				if (authState.user) {
 					this.user = {
 						id: authState.user.uid,
-						name: 'authState.name!',
+						name: 'Khalid Robinson',
 						role: 'admin',
 						avatar: authState.avatar!,
 						email: 'me@we.com',

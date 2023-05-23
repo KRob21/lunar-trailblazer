@@ -1,0 +1,14 @@
+.cards {
+	display: flex;
+	flex-direction: row;
+
+	.card {
+		padding: 11px;
+		margin: 11px;
+
+		.user-card-label {
+			color: red;
+			font-size: 11px;
+		}
+	}
+}
