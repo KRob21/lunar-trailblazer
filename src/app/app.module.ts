@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { HttpClientModule } from '@angular/common/http'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
 import { provideAuth, getAuth } from '@angular/fire/auth'
 import {
@@ -15,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component'
-import { AuthStore } from './store/auth/auth.store';
+import { AuthStore } from './store/auth/auth.store'
 import { DialogComponent } from './shared/components/dialog/dialog.component'
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DialogComponent } from './shared/components/dialog/dialog.component'
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		HttpClientModule,
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideAnalytics(() => getAnalytics()),
 		provideAuth(() => getAuth()),

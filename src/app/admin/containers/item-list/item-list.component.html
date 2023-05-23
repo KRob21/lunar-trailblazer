@@ -1,0 +1,16 @@
+<div>
+    Hello
+    <div class="item-list-actions">
+        <a routerLink="new" class="btn btn--green"> New item + </a>
+    </div>
+
+    <ng-container *ngIf="items?.length; else nothing">
+        <div class="item-card" *ngFor="let item of items; trackBy: trackById; index as i">
+            {{item.id}}
+        </div>
+    </ng-container>
+
+    <ng-template #nothing>
+        <p>No Item here...</p>
+    </ng-template>
+</div>
