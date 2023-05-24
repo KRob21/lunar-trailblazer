@@ -22,7 +22,7 @@ export class ItemService {
 		{
 			id: 'y8z0As',
 			name: 'Just Chocolate',
-			icon: 'just-chocolate',
+			icon: 'cup',
 			price: 120,
 			promo: 'limited',
 			description: 'For the pure chocoholic.',
@@ -30,7 +30,7 @@ export class ItemService {
 		{
 			id: '3u98Kl',
 			name: 'Glazed Fudge',
-			icon: 'glazed-fudge',
+			icon: 'coffee',
 			price: 129,
 			promo: 'new',
 			description: 'Sticky perfection.',
@@ -38,7 +38,7 @@ export class ItemService {
 		{
 			id: 'ae098s',
 			name: 'Caramel Swirl',
-			icon: 'caramel-swirl',
+			icon: 'coffee',
 			price: 149,
 			promo: 'limited',
 			description: 'Chocolate drizzled with caramel.',
@@ -46,7 +46,7 @@ export class ItemService {
 		{
 			id: '8amkZ9',
 			name: 'Sour Supreme',
-			icon: 'sour-supreme',
+			icon: 'cup',
 			price: 139,
 			promo: 'new',
 			description: 'For the sour advocate.',
@@ -54,7 +54,7 @@ export class ItemService {
 		{
 			id: 'l3M0nz',
 			name: 'Zesty Lemon',
-			icon: 'zesty-lemon',
+			icon: 'coffee-mug',
 			price: 129,
 			description: 'Delicious lucious lemon.',
 		},
@@ -74,6 +74,20 @@ export class ItemService {
 			//     return errors.pipe(delay(5000), take(2));
 			// })
 			// catchError(this.handleError)
+		)
+	}
+	readOne(id: string | null) {
+		return this.read().pipe(
+			map(items => {
+				const item = items.find((item: Item) => item.id === id)
+
+				if (item) {
+					return item
+				}
+
+				return { name: '', icon: '', price: 0, description: '' }
+			}),
+			catchError(this.handleError),
 		)
 	}
 

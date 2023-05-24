@@ -1,34 +1,36 @@
 .item-card {
 	display: flex;
 	align-items: center;
-	background: #f7f7f7;
-	border-radius: 5px;
+	background: #275482;
+	border-radius: 11px;
 	margin-bottom: 5px;
-	padding: 5px 15px;
+	padding: 2px 11px;
 	transition: transform 0.2s ease-in-out;
+	text-decoration: none;
 	&:hover {
 		transform: translateY(-3px);
 	}
 	&-promo {
-		border: 2px solid #eee;
+		border: 2px solid #12aaeb;
 	}
 	&-name {
 		font-size: 16px;
+		color: #12aeef;
 	}
 	&-label {
-		border: 1px solid #c14583;
+		border: 1px solid #275482;
 		border-radius: 4px;
 		padding: 0 4px;
 		margin-left: 5px;
 		font-size: 12px;
-		color: #c14583;
+		color: #fff;
 	}
 	&-price {
 		font-size: 14px;
-		color: #c14583;
+		color: #fff;
 	}
 	&-icon {
-		width: 50px;
+		width: 36px;
 		margin-right: 10px;
 	}
 }

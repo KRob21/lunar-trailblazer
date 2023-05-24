@@ -1,3 +1,8 @@
+.dashboard {
+	background-color: #14385f;
+	color: white;
+	padding: 11px;
+}
 .cards {
 	display: flex;
 	flex-direction: row;
@@ -5,10 +10,19 @@
 	.card {
 		padding: 11px;
 		margin: 11px;
+		display: flex;
+		flex-direction: column;
 
 		.user-card-label {
 			color: red;
 			font-size: 11px;
+		}
+
+		&.user {
+			img {
+				width: 150px;
+				border-radius: 100px;
+			}
 		}
 	}
 }
