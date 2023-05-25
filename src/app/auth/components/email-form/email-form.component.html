@@ -1,47 +1,57 @@
-<div class="email-login">
+<div class="login-form">
     <h3>
         <ng-container [ngSwitch]="type">
             <span *ngSwitchCase="'signup'">Create your account.</span>
-            <span *ngSwitchCase="'login'">Log into your account.</span>
+            <span *ngSwitchCase="'login'">Welcome Back <br> <span class="white">Log into your account.</span></span>
         </ng-container>
     </h3>
 
-    <form #form="ngForm" (ngSubmit)="handleSubmit(form)">
+    <form class="email-form" #form="ngForm" (ngSubmit)="handleSubmit(form)">
         <input type="hidden" name="formType" [ngModel]="type" />
         <label *ngIf="isSignup">
             <span>Name</span>
-            <input type="text" name="name" required ngModel />
+            <input type="text" class="input" name="name" required ngModel />
         </label>
 
         <label>
             <span>Email</span>
-            <input class="input" type="email" name="email" ngModel #email />
+            <input class="input" class="input" type="email" name="email" ngModel #email />
         </label>
 
         <label>
             <span>Password</span>
-            <input class="input" type="password" name="password" ngModel #password />
+            <input class="input" class="input" type="password" name="password" ngModel #password />
         </label>
-        <label>
-            <span>
-                <input type="checkbox" name="agreeToTerms" required ngModel #agreeToTerms="ngModel" />Sign me up for the
-                newsletter!</span>
+        <div class="checkboxes">
+            <label>
+                <span>
+                    <input type="checkbox" name="agreeToTerms" required ngModel #agreeToTerms="ngModel" /> remember
+                    me</span>
 
-            <div class="email-login-form-error" *ngIf="agreeToTerms.invalid && agreeToTerms.touched">
-                Agreeing to terms is required.
-            </div>
-        </label>
-        <label>
-            <span> <input type="checkbox" name="rememberMe" ngModel />
-                Remember me</span>
-        </label>
 
+            </label>
+            <label>
+                <span> <input type="checkbox" name="agreeToTerms" ngModel />
+                    I agree to terms</span>
+                <div class="email-login-form-error" *ngIf="agreeToTerms.invalid && agreeToTerms.touched">
+                    Required
+                </div>
+            </label>
+            <label>
+                <span> <input type="checkbox" name="newsletter" ngModel />
+                    Sign me up for
+                    the
+                    newsletter!</span>
+
+            </label>
+        </div>
         <div class="button-group">
             <button class="btn btn--blue" *ngIf="isLogin" type="submit">Sign in</button>
             <button class="btn btn--blue" *ngIf="isSignup" type="submit">Sign Up</button>
-            <button class="btn btn--grey" *ngIf="isSignup" (click)="changeType('login')">Sign into your account</button>
-            <button class="btn btn--grey" *ngIf="!isSignup" (click)="changeType('signup')">create an
-                account?</button>
+            <p class="btn btn--grey" *ngIf="isSignup" (click)="changeType('login')">Sign into your account</p>
+            <p class="btn btn--grey" *ngIf="!isSignup" (click)="changeType('signup')">create an
+                account?</p>
         </div>
+
         <a routerLink="/auth/forgot-password">Forgot password?</a>
     </form>

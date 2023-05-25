@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+@import './third-party/includes-media';
+
+body {
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: white;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+
+p {
+	margin: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font: $font-brandon;
+	text-transform: uppercase;
+	span {
+		display: block;
+		margin-bottom: 5px;
+	}
+}
+
+.input {
+	background: #3b6897 0% 0% no-repeat padding-box;
+	border: none;
+	border-radius: 8px;
+	outline: 0;
+	padding: 15px 22px;
+	width: 279px;
+	font-size: 14px;
+	&:focus {
+		border: 2px solid $orange;
+	}
+	&--select {
+		background-image: url('/assets/img/icon/down.svg');
+		background-position: 98% center;
+		background-repeat: no-repeat;
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+	&--textarea {
+		resize: vertical;
+	}
+}
+
+.btn {
+	font: $font-brandon;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	text-transform: uppercase;
+	padding: 8px 12px;
+	margin-right: 5px;
+	border: 0;
+	border-radius: 4px;
+	transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+	&--grey {
+		background: #f7f7f7;
+		color: #444;
+	}
+	&--green {
+		background: $light-green;
+		color: #fff;
+	}
+	&:hover {
+		opacity: 0.8;
+		transform: translateY(-2px);
+	}
+	&:disabled {
+		cursor: no-drop;
+	}
+}
+
+//  Angular Related Styles
+form .ng-invalid.ng-touched {
+	background: #ffe7e7;
+	border-color: #e66262;
+}

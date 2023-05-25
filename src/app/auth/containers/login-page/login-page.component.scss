@@ -1,14 +1,25 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/third-party/includes-media';
+// ?how-to:	@include media('>tablet') {}
+
 .container {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	min-height: 100vh;
 	padding: 2rem;
-}
 
-.form-wrapper {
-	max-width: 500px;
-	width: 100%;
-	padding: 0;
+	@media (min-width: 768px) {
+		background-image: url('../../../../assets/images/main_banner.jpg'); // replace with your desktop image path
+		background-position: center; // this will center the background image
+		background-repeat: no-repeat; // this will prevent the image from repeating
+		background-attachment: fixed; // this will prevent the image from scrolling
+		background-size: cover; // this will make the image cover the whole container
+		min-height: 768px;
+		color: #fff;
+
+		max-width: 1920px;
+	}
 }
 
 .login-heading {
@@ -16,7 +27,7 @@
 	margin-bottom: 1rem;
 }
 
-.social-login-wrapper {
+.social-login-group {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
