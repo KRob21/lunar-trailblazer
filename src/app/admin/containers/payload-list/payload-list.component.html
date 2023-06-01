@@ -1,0 +1,19 @@
+<div>
+    <div class="payload-list-actions">
+        <a routerLink="new" class="btn btn--green"> <img src="/assets/images/icons/add-to-list.svg"
+                alt="add to list icon" class="payload-card-icon" />
+
+        </a>
+    </div>
+
+    <ng-container *ngIf="payloads?.length; else nothing">
+        <payload-card class="payload-card" *ngFor="let payload of payloads; trackBy: trackById; index as i"
+            [payload]="payload">
+            {{payload.id}}
+        </payload-card>
+    </ng-container>
+
+    <ng-template #nothing>
+        <p>No payload here...</p>
+    </ng-template>
+</div>

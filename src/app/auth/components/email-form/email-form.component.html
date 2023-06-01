@@ -48,9 +48,16 @@
         <div class="button-group">
             <button class="btn btn--blue" *ngIf="isLogin" type="submit">Sign in</button>
             <button class="btn btn--blue" *ngIf="isSignup" type="submit">Sign Up</button>
-            <p class="btn btn--grey" *ngIf="isSignup" (click)="changeType('login')">Sign into your account</p>
-            <p class="btn btn--grey" *ngIf="!isSignup" (click)="changeType('signup')">create an
-                account?</p>
+            <ng-container class="toggle--signup" *ngIf="!isSignup">
+                <p> Returning member? </p><br>
+                <button type="btn btn--grey" (click)="changeType('sigup')">Sign into your account</button>
+            </ng-container>
+            <ng-container class="toggle--signup" *ngIf="isSignup">
+                <p> Returning member? </p><br>
+                <button type="btn" (click)="changeType('login')">Sign into your account</button>
+            </ng-container>
+
+
         </div>
 
         <a routerLink="/auth/forgot-password">Forgot password?</a>

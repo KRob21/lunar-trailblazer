@@ -27,6 +27,19 @@
 	margin-bottom: 1rem;
 }
 
+.button-group {
+	font-family: 'Brandon Grotesque';
+	p {
+		.toggle--signup {
+			text-transform: uppercase;
+
+			a {
+				color: $light-blue;
+			}
+		}
+	}
+}
+
 .social-login-group {
 	display: flex;
 	flex-direction: column;

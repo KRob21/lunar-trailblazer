@@ -2,21 +2,22 @@
     <h2>Admin Area</h2>
     <div class="cards">
         <div class="card user">
-            <img src="/assets/images/avatars/khalid_a_robinson.jpg" [alt]="user!.name">
+            <img src="/assets/images/avatars/khalid_a_robinson.jpg" [alt]="user?.name">
             <div>
                 <p class="user-card-name">
-                    Name: {{user!.name}}
-                    <ng-container [ngSwitch]="user!.role">
+                    Name: {{user?.name}}
+                    <ng-container [ngSwitch]="user?.role">
                         <span *ngSwitchCase="'member'" class="user-card-label">member</span>
                         <span *ngSwitchCase="'admin'" class="user-card-label">admin</span>
                     </ng-container>
                 </p>
                 <p class="user-card-email">
-                    Email: {{user!.email}}
+                    Email: {{user?.email}}
                 </p>
             </div>
-            <a [routerLink]="user!.id" class="btn">edit</a>
+            <a [routerLink]="user?.id" class="btn">edit</a>
         </div>
         <item-list></item-list>
+        <payload-list></payload-list>
     </div>
 </div>
