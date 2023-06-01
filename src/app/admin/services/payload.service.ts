@@ -11,7 +11,7 @@ export class PayloadService {
 		{
 			id: 'y8z0As',
 			name: 's mores Campfire',
-			icon: 'cup',
+			icon: 'smores-campfire',
 			price: 120,
 			promo: 'limited',
 			description:
@@ -20,7 +20,7 @@ export class PayloadService {
 		{
 			id: '3u98Kl',
 			name: 'Matcha Madness',
-			icon: 'coffee',
+			icon: 'matcha-madness',
 			price: 129,
 			promo: 'new',
 			description:
@@ -29,7 +29,7 @@ export class PayloadService {
 		{
 			id: 'ae098s',
 			name: '"Bourbon Pecan Pie',
-			icon: 'coffee',
+			icon: 'bourbon-pecan-pie',
 			price: 149,
 			promo: 'limited',
 			description:
@@ -38,7 +38,7 @@ export class PayloadService {
 		{
 			id: '8amkZ9',
 			name: 'PB&J',
-			icon: 'cup',
+			icon: 'peanutbutterandjelly',
 			price: 139,
 			promo: 'new',
 			description:
@@ -47,7 +47,7 @@ export class PayloadService {
 		{
 			id: 'l3M0nz',
 			name: 'Spicy Chocolate',
-			icon: 'coffee-mug',
+			icon: 'spicy-chocolate',
 			price: 129,
 			description:
 				' dark chocolate ice cream with a kick of cayenne pepper and chunks of spicy chocolate.',
@@ -55,7 +55,7 @@ export class PayloadService {
 		{
 			id: '8amkZ9',
 			name: 'Lemon Meringue Pie',
-			icon: 'cup',
+			icon: 'lemon-meringue-pie',
 			price: 139,
 			promo: 'new',
 			description:
