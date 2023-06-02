@@ -1,1 +1,86 @@
-<p>payload-form works!</p>
+<form class="payload-form" #form="ngForm" *ngIf="payload; else loading">
+    <label>
+        <span>Name</span>
+        <input type="text" name="name" class="input" required minlength="5" [ngModel]="payload.name"
+            [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel" />
+        <ng-container *ngIf="name.invalid && name.touched">
+            <!-- <div class="payload-form-error" *ngIf="name.errors?.minlength">
+                Minimum length of a name is 5!
+            </div>
+            <div class="payload-form-error" *ngIf="name.errors?.required">
+                Name is required.
+            </div> -->
+        </ng-container>
+    </label>
+
+    <label>
+        <span>Icon</span>
+        <select name="icon" class="input input--select" required [ngModel]="payload.icon" #icon="ngModel">
+            <option *ngFor="let icon of icons" [ngValue]="icon">
+                {{ icon }}
+            </option>
+        </select>
+        <ng-container *ngIf="icon.invalid && icon.touched">
+            <!-- <div class="payload-form-error" *ngIf="icon.errors?.required">
+                Icon is required.
+            </div> -->
+        </ng-container>
+    </label>
+
+    <label>
+        <span>Price</span>
+        <input type="number" name="price" class="input" required [ngModel]="payload.price" #price="ngModel" />
+        <ng-container *ngIf="price.invalid && price.touched">
+            <!-- <div class="payload-form-error" *ngIf="price.errors?.required">
+                Price is required.
+            </div> -->
+        </ng-container>
+    </label>
+
+    <div class="payload-form-radios">
+        <p class="payload-form-radios-label">Promo:</p>
+        <label>
+            <input type="radio" name="promo" [value]="undefined" [ngModel]="payload.promo" />
+            <span>None</span>
+        </label>
+        <label>
+            <input type="radio" name="promo" value="new" [ngModel]="payload.promo" />
+            <span>New</span>
+        </label>
+        <label>
+            <input type="radio" name="promo" value="limited" [ngModel]="payload.promo" />
+            <span>Limited</span>
+        </label>
+    </div>
+
+    <label>
+        <span>Description</span>
+        <textarea name="description" class="input input--textarea" required [ngModel]="payload.description"
+            #description="ngModel"></textarea>
+        <ng-container *ngIf="description.invalid && description.touched">
+            <!-- <div class="payload-form-error" *ngIf="description.errors?.required">
+                Description is required.
+            </div> -->
+        </ng-container>
+    </label>
+
+    <button type="button" class="btn btn--green" *ngIf="!isEdit" (click)="handleCreate(form)">
+        Create
+    </button>
+    <button type="button" class="btn btn--green" [disabled]="form.untouched" *ngIf="isEdit"
+        (click)="handleUpdate(form)">
+        Update
+    </button>
+    <button type="button" class="btn btn--green" (click)="handleDelete()" *ngIf="isEdit">
+        Delete
+    </button>
+    <button type="button" class="btn btn--grey" *ngIf="form.touched" (click)="form.resetForm()">
+        Reset Form
+    </button>
+
+    <div class="payload-form-working" *ngIf="form.valid && form.submitted">
+        Working...
+    </div>
+</form>
+
+<ng-template #loading>Loading...</ng-template>

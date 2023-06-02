@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/third-party/includes-media';
+
+.payload-list {
+	&--card {
+		background-color: #275482;
+		font-family: $font-brandon;
+		.header {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 11px;
+			background: $dark-blue;
+			h3 {
+				font-size: 18px;
+			}
+			.icon {
+				height: 18px;
+				width: 18px;
+				margin-right: 7px;
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
 <a class="payload-card" [routerLink]="payload.id" [ngClass]="{
     'payload-card-promo': payload.promo
 }">
-    <img height="36" src="/assets/images/icons/{{payload.icon}}.svg" [alt]="payload!.name" class="payload-card-icon" />
+    <img src="/assets/images/icons/{{payload.icon}}.svg" [alt]="payload!.name" class="payload-card-icon" />
     <div>
         <p class="payload-card-name">
             {{ payload.name }}
@@ -10,8 +10,10 @@
                 <span *ngSwitchCase="'limited'" class="payload-card-label">LIMITED</span>
             </ng-container>
         </p>
-        <p class="payload-card-price">
-            {{ payload.price / 100 | currency : 'USD' : 'symbol' }}
-        </p>
+        <p class="payload-card-description">{{payload.description}}</p>
+
     </div>
+    <p class="payload-card-price">
+        {{ payload.price / 100 | currency : 'USD' : 'symbol' }}
+    </p>
 </a>

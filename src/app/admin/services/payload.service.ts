@@ -28,7 +28,7 @@ export class PayloadService {
 		},
 		{
 			id: 'ae098s',
-			name: '"Bourbon Pecan Pie',
+			name: 'Bourbon Pecan Pie',
 			icon: 'bourbon-pecan-pie',
 			price: 149,
 			promo: 'limited',

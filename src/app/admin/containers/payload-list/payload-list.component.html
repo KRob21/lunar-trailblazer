@@ -1,11 +1,11 @@
-<div>
-    <div class="payload-list-actions">
-        <a routerLink="new" class="btn btn--green"> <img src="/assets/images/icons/add-to-list.svg"
-                alt="add to list icon" class="payload-card-icon" />
+<div class="payload-list--card">
+    <div class="header">
+        <h3> <img src="/assets/images/icons/rocket.svg" alt="" class="icon"> Payloads</h3>
+        <a routerLink="new" class="btn"> <img src="/assets/images/icons/add-to-list.svg" alt="add to list icon"
+                class="payload-card-icon" />
 
         </a>
     </div>
-
     <ng-container *ngIf="payloads?.length; else nothing">
         <payload-card class="payload-card" *ngFor="let payload of payloads; trackBy: trackById; index as i"
             [payload]="payload">

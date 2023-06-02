@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { DashboardComponent } from './containers/dashboard/dashboard.component'
 import { HttpClientModule } from '@angular/common/http'
-import { ItemSingleComponent } from './containers/item-single/item-single.component'
+import { PayloadSingleComponent } from './containers/payload-single/payload-single.component'
 
 const routes: Routes = [
 	{
@@ -10,13 +10,13 @@ const routes: Routes = [
 		component: DashboardComponent,
 	},
 	{
-		path: 'items/new',
-		component: ItemSingleComponent,
+		path: 'dashboard/new',
+		component: PayloadSingleComponent,
 		data: { isEdit: false },
 	},
 	{
-		path: 'items/:id',
-		component: ItemSingleComponent,
+		path: 'dashboard/:id',
+		component: PayloadSingleComponent,
 		data: { isEdit: true },
 	},
 	{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
