@@ -34,3 +34,17 @@ $font-weight-bold: bold;
 
 // Text Transform
 $text-transform-uppercase: uppercase;
+
+// mixins
+// flex container
+@mixin flex-container {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: 44px;
+		align-items: center;
+	}
+}

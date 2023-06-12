@@ -1,14 +1,6 @@
-@mixin flex-container {
-	display: flex;
-	flex-direction: column;
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/third-party/includes-media';
 
-	@media (min-width: 768px) {
-		flex-direction: row;
-		flex-wrap: wrap;
-		margin-bottom: 44px;
-		align-items: center;
-	}
-}
 .title {
 	width: 450px;
 	margin: 88px auto 0;
@@ -22,7 +14,12 @@
 
 	@media (min-width: 768px) {
 		background-color: #000;
-		color: #000;
+		color: white;
+	}
+	.container {
+		@include media('≥tablet') {
+			flex-direction: column;
+		}
 	}
 }
 .image-container,
