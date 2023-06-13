@@ -1,6 +1,53 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/third-party/includes-media';
+
 .payload-form {
-	margin: 10% auto;
-	width: 550px;
+	margin: 44px auto;
+	width: 450px;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px #00000029;
+
+	&.card {
+		background-color: #275482;
+		font-family: $font-brandon;
+		.header {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding: 11px;
+			background: $dark-blue;
+			h3 {
+				font-size: 14px;
+				color: white;
+			}
+			.icon {
+				height: 18px;
+				width: 18px;
+				margin-right: 7px;
+			}
+		}
+		.content {
+			background: #fff;
+			padding: 11px;
+			display: flex;
+			flex-direction: column;
+			label {
+				padding: 5px;
+				.input {
+					background: rgba($color: #a6adb4, $alpha: 0.31) 0% 0%
+						no-repeat padding-box;
+					width: 100%;
+					text-align: left;
+					font: normal normal normal 14px/17px Century Gothic;
+					letter-spacing: 1.01px;
+					color: #050d17;
+				}
+			}
+		}
+	}
+
 	&-radios {
 		display: flex;
 		align-content: center;
@@ -10,9 +57,12 @@
 		label {
 			display: flex;
 			align-items: center;
+
 			span {
-				color: #444;
-				margin-bottom: 0;
+				text-align: left;
+				font: normal normal normal 14px/17px Century Gothic;
+				letter-spacing: 1.01px;
+				color: #64676a;
 			}
 		}
 	}

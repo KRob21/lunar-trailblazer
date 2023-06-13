@@ -104,6 +104,42 @@ export class PayloadService {
 		)
 	}
 
+	create(payload: Payload) {
+		return this.http.post<Payload>('/api/donuts', payload).pipe(
+			tap(payload => {
+				this.payloads = [...this.payloads, payload]
+			}),
+			catchError(this.handleError),
+		)
+	}
+
+	update(payload: Payload) {
+		return this.http
+			.put<Payload>(`/api/payloads/${payload.id}`, payload)
+			.pipe(
+				tap(payload => {
+					this.payloads = this.payloads.map((item: Payload) => {
+						if (item.id === payload.id) {
+							return payload
+						}
+						return item
+					})
+				}),
+				catchError(this.handleError),
+			)
+	}
+
+	delete(payload: Payload) {
+		return this.http.delete<Payload>(`/api/payloads/${payload.id}`).pipe(
+			tap(() => {
+				this.payloads = this.payloads.filter(
+					(payload: Payload) => payload.id !== payload.id,
+				)
+			}),
+			catchError(this.handleError),
+		)
+	}
+
 	private handleError(err: HttpErrorResponse) {
 		if (err.error instanceof ErrorEvent) {
 			// client-side

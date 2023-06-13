@@ -27,4 +27,23 @@ export class PayloadSingleComponent implements OnInit {
 		this.isEdit = this.route.snapshot.data['isEdit']
 		console.log('payload: ', this.payload)
 	}
+
+	onCreate(payload: Payload) {
+		this.payloadService
+			.create(payload)
+			.subscribe(payload =>
+				this.router.navigate(['admin', 'payloads', payload.id]),
+			)
+	}
+
+	onUpdate(payload: Payload) {
+		this.payloadService.update(payload).subscribe({
+			next: () => this.router.navigate(['admin']),
+			error: err => console.log('onUpdate error: ', err),
+		})
+	}
+
+	onDelete(payload: Payload) {
+		console.log('delete: ', payload)
+	}
 }

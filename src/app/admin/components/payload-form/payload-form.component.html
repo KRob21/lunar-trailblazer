@@ -1,85 +1,96 @@
-<form class="payload-form" #form="ngForm" *ngIf="payload; else loading">
-    <label>
-        <span>Name</span>
-        <input type="text" name="name" class="input" required minlength="5" [ngModel]="payload.name"
-            [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel" />
-        <ng-container *ngIf="name.invalid && name.touched">
-            <!-- <div class="payload-form-error" *ngIf="name.errors?.minlength">
-                Minimum length of a name is 5!
-            </div>
-            <div class="payload-form-error" *ngIf="name.errors?.required">
-                Name is required.
-            </div> -->
-        </ng-container>
-    </label>
+<form class="payload-form card" #form="ngForm" *ngIf="payload; else loading">
+    <div class="header">
+        <h3> <img src="/assets/images/icons/rocket.svg" alt="" class="icon"> Payload.form.component</h3>
+        <a routerLink="new" class="btn"> <img src="/assets/images/icons/add-to-list.svg" alt="add to list icon"
+                class="payload-card-icon" />
 
-    <label>
-        <span>Icon</span>
-        <select name="icon" class="input input--select" required [ngModel]="payload.icon" #icon="ngModel">
-            <option *ngFor="let icon of icons" [ngValue]="icon">
-                {{ icon }}
-            </option>
-        </select>
-        <ng-container *ngIf="icon.invalid && icon.touched">
-            <!-- <div class="payload-form-error" *ngIf="icon.errors?.required">
+        </a>
+    </div>
+    <div class="content">
+
+
+        <label>
+            <span>Name</span>
+            <input type="text" name="name" class="input" required minlength="5" [ngModel]="payload.name"
+                [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel" />
+            <!-- <ng-container *ngIf="name.invalid && name.touched">
+                <div class="payload-form-error" *ngIf="name.errors?.minlength">
+                    Minimum length of a name is 5!
+                </div>
+                <div class="payload-form-error" *ngIf="name.errors?.required">
+                    Name is required.
+                </div>
+            </ng-container> -->
+        </label>
+
+        <label>
+            <span>Icon</span>
+            <select name="icon" class="input input--select" required [ngModel]="payload.icon" #icon="ngModel">
+                <option *ngFor="let icon of icons" [ngValue]="icon">
+                    {{ icon }}
+                </option>
+            </select>
+            <ng-container *ngIf="icon.invalid && icon.touched">
+                <!-- <div class="payload-form-error" *ngIf="icon.errors?.required">
                 Icon is required.
             </div> -->
-        </ng-container>
-    </label>
+            </ng-container>
+        </label>
 
-    <label>
-        <span>Price</span>
-        <input type="number" name="price" class="input" required [ngModel]="payload.price" #price="ngModel" />
-        <ng-container *ngIf="price.invalid && price.touched">
-            <!-- <div class="payload-form-error" *ngIf="price.errors?.required">
+        <label>
+            <span>Price</span>
+            <input type="number" name="price" class="input" required [ngModel]="payload.price" #price="ngModel" />
+            <ng-container *ngIf="price.invalid && price.touched">
+                <!-- <div class="payload-form-error" *ngIf="price.errors?.required">
                 Price is required.
             </div> -->
-        </ng-container>
-    </label>
+            </ng-container>
+        </label>
 
-    <div class="payload-form-radios">
-        <p class="payload-form-radios-label">Promo:</p>
-        <label>
-            <input type="radio" name="promo" [value]="undefined" [ngModel]="payload.promo" />
-            <span>None</span>
-        </label>
-        <label>
-            <input type="radio" name="promo" value="new" [ngModel]="payload.promo" />
-            <span>New</span>
-        </label>
-        <label>
-            <input type="radio" name="promo" value="limited" [ngModel]="payload.promo" />
-            <span>Limited</span>
-        </label>
-    </div>
+        <div class="payload-form-radios">
+            <p class="payload-form-radios-label">Promo:</p>
+            <label>
+                <input type="radio" name="promo" [value]="undefined" [ngModel]="payload.promo" />
+                <span>None</span>
+            </label>
+            <label>
+                <input type="radio" name="promo" value="new" [ngModel]="payload.promo" />
+                <span>New</span>
+            </label>
+            <label>
+                <input type="radio" name="promo" value="limited" [ngModel]="payload.promo" />
+                <span>Limited</span>
+            </label>
+        </div>
 
-    <label>
-        <span>Description</span>
-        <textarea name="description" class="input input--textarea" required [ngModel]="payload.description"
-            #description="ngModel"></textarea>
-        <ng-container *ngIf="description.invalid && description.touched">
-            <!-- <div class="payload-form-error" *ngIf="description.errors?.required">
+        <label>
+            <span>Description</span>
+            <textarea name="description" class="input input--textarea" required [ngModel]="payload.description"
+                #description="ngModel"></textarea>
+            <ng-container *ngIf="description.invalid && description.touched">
+                <!-- <div class="payload-form-error" *ngIf="description.errors?.required">
                 Description is required.
             </div> -->
-        </ng-container>
-    </label>
+            </ng-container>
+        </label>
 
-    <button type="button" class="btn btn--green" *ngIf="!isEdit" (click)="handleCreate(form)">
-        Create
-    </button>
-    <button type="button" class="btn btn--green" [disabled]="form.untouched" *ngIf="isEdit"
-        (click)="handleUpdate(form)">
-        Update
-    </button>
-    <button type="button" class="btn btn--green" (click)="handleDelete()" *ngIf="isEdit">
-        Delete
-    </button>
-    <button type="button" class="btn btn--grey" *ngIf="form.touched" (click)="form.resetForm()">
-        Reset Form
-    </button>
+        <button type="button" class="btn btn--green" *ngIf="!isEdit" (click)="handleCreate(form)">
+            Create
+        </button>
+        <button type="button" class="btn btn--green" [disabled]="form.untouched" *ngIf="isEdit"
+            (click)="handleUpdate(form)">
+            Update
+        </button>
+        <button type="button" class="btn btn--green" (click)="handleDelete()" *ngIf="isEdit">
+            Delete
+        </button>
+        <button type="button" class="btn btn--grey" *ngIf="form.touched" (click)="form.resetForm()">
+            Reset Form
+        </button>
 
-    <div class="payload-form-working" *ngIf="form.valid && form.submitted">
-        Working...
+        <div class="payload-form-working" *ngIf="form.valid && form.submitted">
+            Working...
+        </div>
     </div>
 </form>
 
