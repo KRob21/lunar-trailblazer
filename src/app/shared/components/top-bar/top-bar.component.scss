@@ -10,11 +10,16 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem;
+	padding: 0.5rem;
 
 	.logo {
-		img {
-			height: 50px;
+		color: white;
+		h1 {
+			margin: 0 auto;
+			img {
+				height: 50px;
+				margin-right: 11px;
+			}
 		}
 	}
 
@@ -35,10 +40,15 @@
 		a {
 			color: white;
 			text-decoration: none;
-			margin: 0 1rem;
+			margin-right: 7px;
 
 			&:hover {
 				text-decoration: underline;
+			}
+
+			&.active-link {
+				background-color: $light-green;
+				color: white;
 			}
 		}
 	}

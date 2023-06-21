@@ -71,7 +71,7 @@ label {
 	max-width: 180px;
 	border: 0;
 	border-radius: 4px;
-	background-color: $light-blue;
+	background-color: $dark-blue;
 	transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 	&--grey {
 		background: #f7f7f7;
@@ -79,6 +79,14 @@ label {
 	}
 	&--green {
 		background: $light-green;
+		color: #fff;
+	}
+	&--blue {
+		background: $light-blue;
+		color: #fff;
+	}
+	&--red {
+		background: $bright-red;
 		color: #fff;
 	}
 	&:hover {

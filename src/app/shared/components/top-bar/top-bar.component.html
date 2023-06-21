@@ -1,18 +1,19 @@
 <header class="top-bar">
   <div class="logo">
-    <img src="assets/logo.png" alt="Your Logo" />
+    <h1> <img src="../../../../assets/images/logos/logo_white.png" alt="Your Logo" /> Lunar Trailblazer Kit</h1>
+
   </div>
   <div class="tagline">
-    <h1>Lunar Trailblazer Kit</h1>
+
   </div>
   <nav class="navigation">
-    <a routerLink="/">Home</a>
-    <a routerLink="about">About</a>
-    <a routerLink="contact">Contact</a>
-    <a routerLink="services">Services</a>
-    <a routerLink="admin/">Admin</a>
-    <a *ngIf="!isLoggedIn" routerLink="auth/login"> Log in</a>
-    <a class="btn btn-red" *ngIf="isLoggedIn" (click)="logout()">Log out</a>
+    <a class="btn" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a class="btn" routerLink="about" routerLinkActive="active-link">About</a>
+    <a class="btn" routerLink="contact" routerLinkActive="active-link">Contact</a>
+    <a class="btn" routerLink="services" routerLinkActive="active-link">Services</a>
+    <a class="btn" routerLink="admin/" routerLinkActive="active-link">Admin</a>
+    <a class="btn btn--blue" *ngIf="!isLoggedIn" routerLink="auth/login"> Log in</a>
+    <a class="btn btn--red" *ngIf="isLoggedIn" (click)="logout()">Log out</a>
 
     <!-- Add more links as needed -->
   </nav>

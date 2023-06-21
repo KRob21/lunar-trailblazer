@@ -10,15 +10,31 @@
 	@include flex-container;
 }
 .banner {
-	min-height: 760px;
+	height: 550px;
+	width: 100%;
+	background-image: url('../../../../assets/images/banners/main_banner_mobile.jpg'); // Mobile background image by default
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: center;
 
-	@media (min-width: 768px) {
+	@include media('≥tablet') {
+		// For tablets and above
+		background-image: url('../../../../assets/images/main_banner.jpg'); // Tablet background image
 		background-color: #000;
 		color: white;
 	}
+
+	@include media('>tablet') {
+		// For desktops and above
+		background-image: url('../../../../assets/images/banners/main_banner_desktop.jpg'); // Desktop background image
+		height: 90vh;
+	}
+
 	.container {
 		@include media('≥tablet') {
 			flex-direction: column;
+			max-height: 760px;
 		}
 	}
 }
@@ -44,7 +60,7 @@
 			flex-basis: 100%;
 			text-align: center;
 
-			@media (min-width: 768px) {
+			@include media('>tablet') {
 				flex-basis: calc(100% / 3 - 22px);
 			}
 		}
@@ -65,7 +81,7 @@
 			border: #f9f9f9 1px solid;
 			box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
-			@media (min-width: 768px) {
+			@include media('>tablet') {
 				flex-basis: calc(90% / 2 - 22px);
 			}
 		}

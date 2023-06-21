@@ -38,7 +38,7 @@ export class PayloadService {
 		{
 			id: '8amkZ9',
 			name: 'PB&J',
-			icon: 'peanutbutterandjelly',
+			icon: 'peanut-butter-jelly',
 			price: 139,
 			promo: 'new',
 			description:
